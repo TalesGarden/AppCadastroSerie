@@ -6,7 +6,7 @@ namespace DIO.Series
 {
 	public class SerieRepositorio : IRepositorio<Serie>
 	{
-        private List<Serie> listaSerie = new List<Serie>();
+    private List<Serie> listaSerie = new List<Serie>();
 		public void Atualiza(int id, Serie objeto)
 		{
 			listaSerie[id] = objeto;

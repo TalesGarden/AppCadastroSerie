@@ -4,6 +4,7 @@ namespace DIO.Series
 {
     class Program
     {
+			//repositório singleton
         static SerieRepositorio repositorio = SerieRepositorio.Instance;
         static void Main(string[] args)
         {

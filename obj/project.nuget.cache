@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KmEpPnqQOU0PNzVZgH0UOc5clTgN+yYTw5R9yHP1Rw3Aow5fS05HyPprOsfMdRbLaFSghq5ETQZgl38I9TVqUg==",
+  "dgSpecHash": "xAY9Aq5cPKJd0pkt/sQA1z6oVxITmx3tJVwW4PCDuyJ3H/C3LrOqXemNYsCjhmUvCOOFZb5pGyRxsaBbmRGtqA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tales R Jardim\\OneDrive\\Área de Trabalho\\.NET Learning\\Cadastro de série\\AppSerie\\dio-dotnet-poo-lab-2\\DIO.Series.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Tales R Jardim\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Tales R Jardim\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Tales R Jardim\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\Tales R Jardim\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

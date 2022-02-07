@@ -4,7 +4,7 @@ namespace DIO.Series
 {
     class Program
     {
-        static SerieRepositorio repositorio = new SerieRepositorio();
+        static SerieRepositorio repositorio = SerieRepositorio.Instance;
         static void Main(string[] args)
         {
             string opcaoUsuario = ObterOpcaoUsuario();
@@ -43,7 +43,7 @@ namespace DIO.Series
 			Console.ReadLine();
         }
 
-        private static void ExcluirSerie()
+    private static void ExcluirSerie()
 		{
 			Console.Write("Digite o id da série: ");
 			int indiceSerie = int.Parse(Console.ReadLine());
@@ -51,7 +51,7 @@ namespace DIO.Series
 			repositorio.Exclui(indiceSerie);
 		}
 
-        private static void VisualizarSerie()
+    private static void VisualizarSerie()
 		{
 			Console.Write("Digite o id da série: ");
 			int indiceSerie = int.Parse(Console.ReadLine());
@@ -106,13 +106,13 @@ namespace DIO.Series
 
 			foreach (var serie in lista)
 			{
-                var excluido = serie.retornaExcluido();
+        var excluido = serie.retornaExcluido();
                 
 				Console.WriteLine("#ID {0}: - {1} {2}", serie.retornaId(), serie.retornaTitulo(), (excluido ? "*Excluído*" : ""));
 			}
 		}
 
-        private static void InserirSerie()
+    private static void InserirSerie()
 		{
 			Console.WriteLine("Inserir nova série");
 
@@ -140,10 +140,10 @@ namespace DIO.Series
 										ano: entradaAno,
 										descricao: entradaDescricao);
 
-			repositorio.Insere(novaSerie);
+		repositorio.Insere(novaSerie);
 		}
 
-        private static string ObterOpcaoUsuario()
+    private static string ObterOpcaoUsuario()
 		{
 			Console.WriteLine();
 			Console.WriteLine("DIO Séries a seu dispor!!!");

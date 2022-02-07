@@ -4,14 +4,25 @@ using DIO.Series.Interfaces;
 
 namespace DIO.Series
 {
-	public class SerieRepositorio : IRepositorio<Serie>
+//Classe SerieRepositorio É UM
+	public sealed class SerieRepositorio : IRepositorio<Serie>
 	{
+
+		private SerieRepositorio(){}
+		private static readonly SerieRepositorio instance = new SerieRepositorio();
     private List<Serie> listaSerie = new List<Serie>();
 		public void Atualiza(int id, Serie objeto)
 		{
 			listaSerie[id] = objeto;
 		}
-
+		
+		public static SerieRepositorio Instance
+		{
+			 get
+			 {
+				 return instance;
+			 }
+		}
 		public void Exclui(int id)
 		{
 			listaSerie[id].Excluir();
@@ -36,5 +47,7 @@ namespace DIO.Series
 		{
 			return listaSerie[id];
 		}
+
+		
 	}
 }

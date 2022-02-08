@@ -13,6 +13,8 @@ namespace DIO.Series
     private bool Excluido {get; set;}
 		private int Rank { get; set; }
 
+		private bool Protegido{ get; set; }
+
         // Métodos
 		public Serie(int id, List<Genero> genero, string titulo, string descricao, int ano)
 		{
@@ -21,6 +23,7 @@ namespace DIO.Series
 			this.Titulo = titulo;
 			this.Descricao = descricao;
 			this.Ano = ano;
+			this.Protegido = false;
       this.Excluido = false;
 
 			//Numero de estrelas da série - 0 á 5
@@ -37,8 +40,9 @@ namespace DIO.Series
             retorno += "Titulo: " + this.Titulo + Environment.NewLine;
             retorno += "Descrição: " + this.Descricao + Environment.NewLine;
             retorno += "Ano de Início: " + this.Ano + Environment.NewLine;
-						retorno += "Rank: " + ImprimirEstrelas()  + Environment.NewLine;
-            retorno += "Excluido: " + this.Excluido;
+						retorno += "Rank: " + ImprimirEstrelas() + Environment.NewLine;
+            retorno += "Excluido: " + this.Excluido + Environment.NewLine;
+						retorno += "Protegido: " + this.Protegido + Environment.NewLine;
 
 			return retorno;
 		}
@@ -52,12 +56,19 @@ namespace DIO.Series
 		{
 			return this.Id;
 		}
-        public bool retornaExcluido()
+    public bool retornaExcluido()
 		{
 			return this.Excluido;
 		}
 		public void Excluir() 
 		{
+			//verifica se está protegida e se já foi excluído
+			if (this.Protegido && !this.Excluido)
+			{
+				Console.Clear();
+				System.Console.WriteLine("A série foi protegida, não é permitido mais sua exclusão");
+				return;
+			}
             this.Excluido = true;
     }
 
@@ -81,6 +92,17 @@ namespace DIO.Series
 				todosGeneros +=$"{genero.ToString()}, " ;
 			}
 			return todosGeneros;
+		}
+		public void ProtegerSerie()
+		{
+			if(this.Excluido)
+			{
+				System.Console.WriteLine("Série já excluida");
+				return;
+			}
+			System.Console.WriteLine($"A Série {this.Titulo} foi protegida" + Environment.NewLine);
+
+			this.Protegido = true;
 		}
     }
 }

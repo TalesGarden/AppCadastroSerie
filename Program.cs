@@ -30,6 +30,9 @@ namespace DIO.Series
 					case "5":
 						VisualizarSerie();
 						break;
+					case "6":
+						ProtegerSerie();
+						break;
 					case "C":
 						Console.Clear();
 						break;
@@ -44,7 +47,14 @@ namespace DIO.Series
 			Console.WriteLine("Obrigado por utilizar nossos serviços.");
 			Console.ReadLine();
         }
+		
+		private static void ProtegerSerie()
+		{
+			Console.Write("Digite o id da série: ");
+			int indiceSerie = int.Parse(Console.ReadLine());
 
+			repositorio.ProtegerSerie(indiceSerie);
+		}
     private static void ExcluirSerie()
 		{
 			Console.Write("Digite o id da série: ");
@@ -92,7 +102,6 @@ namespace DIO.Series
 			}
 			System.Console.WriteLine("___________________________________"+ Environment.NewLine);
 			Console.Write("Digite outro gênero entre as opções acima: ");
-
 
 			entradaGenero = int.Parse(Console.ReadLine());
 			genero.Add((Genero)entradaGenero);
@@ -193,6 +202,7 @@ namespace DIO.Series
 			Console.WriteLine("3- Atualizar série");
 			Console.WriteLine("4- Excluir série");
 			Console.WriteLine("5- Visualizar série");
+			Console.WriteLine("6- Proteger Série");
 			Console.WriteLine("C- Limpar Tela");
 			Console.WriteLine("X- Sair");
 			Console.WriteLine();

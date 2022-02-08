@@ -4,7 +4,7 @@ using DIO.Series.Interfaces;
 
 namespace DIO.Series
 {
-//Classe SerieRepositorio É UM
+//Classe SerieRepositorio É UM SINGLETON 
 	public sealed class SerieRepositorio : IRepositorio<Serie>
 	{
 
@@ -26,6 +26,11 @@ namespace DIO.Series
 		public void Exclui(int id)
 		{
 			listaSerie[id].Excluir();
+		}
+
+		public void ProtegerSerie(int id)
+		{
+			listaSerie[id].ProtegerSerie();
 		}
 
 		public void Insere(Serie objeto)

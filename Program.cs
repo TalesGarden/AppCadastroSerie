@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DIO.Series
 {
@@ -62,19 +63,39 @@ namespace DIO.Series
 			Console.WriteLine(serie);
 		}
 
-        private static void AtualizarSerie()
+    private static void AtualizarSerie()
 		{
 			Console.Write("Digite o id da série: ");
 			int indiceSerie = int.Parse(Console.ReadLine());
 
 			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getvalues?view=netcore-3.1
 			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getname?view=netcore-3.1
+
+
 			foreach (int i in Enum.GetValues(typeof(Genero)))
 			{
 				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
 			}
+
+			System.Console.WriteLine("___________________________________"+Environment.NewLine);
 			Console.Write("Digite o gênero entre as opções acima: ");
+
+			List<Genero> genero = new List<Genero>();
+
 			int entradaGenero = int.Parse(Console.ReadLine());
+			genero.Add((Genero)entradaGenero);
+
+			Console.Clear();
+			foreach (int i in Enum.GetValues(typeof(Genero)))
+			{
+				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
+			}
+			System.Console.WriteLine("___________________________________"+ Environment.NewLine);
+			Console.Write("Digite outro gênero entre as opções acima: ");
+
+
+			entradaGenero = int.Parse(Console.ReadLine());
+			genero.Add((Genero)entradaGenero);
 
 			Console.Write("Digite o Título da Série: ");
 			string entradaTitulo = Console.ReadLine();
@@ -86,7 +107,7 @@ namespace DIO.Series
 			string entradaDescricao = Console.ReadLine();
 
 			Serie atualizaSerie = new Serie(id: indiceSerie,
-										genero: (Genero)entradaGenero,
+										genero: genero,
 										titulo: entradaTitulo,
 										ano: entradaAno,
 										descricao: entradaDescricao);
@@ -123,8 +144,25 @@ namespace DIO.Series
 			{
 				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
 			}
+			System.Console.WriteLine("___________________________________ "+ Environment.NewLine);
 			Console.Write("Digite o gênero entre as opções acima: ");
+
 			int entradaGenero = int.Parse(Console.ReadLine());
+
+			List<Genero> genero = new List<Genero>();
+			genero.Add((Genero)entradaGenero);
+	
+			Console.Clear();
+			foreach (int i in Enum.GetValues(typeof(Genero)))
+			{
+				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
+			}
+			System.Console.WriteLine("___________________________________" +Environment.NewLine);
+			Console.Write("Digite outro gênero entre as opções acima: ");
+			
+
+			entradaGenero = int.Parse(Console.ReadLine());
+			genero.Add((Genero)entradaGenero);
 
 			Console.Write("Digite o Título da Série: ");
 			string entradaTitulo = Console.ReadLine();
@@ -136,7 +174,7 @@ namespace DIO.Series
 			string entradaDescricao = Console.ReadLine();
 
 			Serie novaSerie = new Serie(id: repositorio.ProximoId(),
-										genero: (Genero)entradaGenero,
+										genero: genero,
 										titulo: entradaTitulo,
 										ano: entradaAno,
 										descricao: entradaDescricao);
